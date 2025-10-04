@@ -1,7 +1,11 @@
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
+import GamificationHub from '@/components/GamificationHub';
+import InteractiveCupolaMap from '@/components/InteractiveCupolaMap';
 import CupolaExperience from '@/components/CupolaExperience';
+import NBLTrainingGame from '@/components/NBLTrainingGame';
 import WeightlessnessDemo from '@/components/WeightlessnessDemo';
+import EnhancedEarthBenefits from '@/components/EnhancedEarthBenefits';
 import EarthBenefits from '@/components/EarthBenefits';
 import EarthObservation from '@/components/EarthObservation';
 import ISSResearchLaboratory from '@/components/ISSResearchLaboratory';
@@ -21,8 +25,12 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       <Hero />
+      <GamificationHub />
+      <InteractiveCupolaMap />
       <CupolaExperience />
+      <NBLTrainingGame />
       <WeightlessnessDemo />
+      <EnhancedEarthBenefits />
       <EarthBenefits />
       <EarthObservation />
       <ISSResearchLaboratory />
