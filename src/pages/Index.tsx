@@ -1,6 +1,5 @@
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
-import GamificationHub from '@/components/GamificationHub';
 import InteractiveCupolaMap from '@/components/InteractiveCupolaMap';
 import CupolaExperience from '@/components/CupolaExperience';
 import NBLTrainingGame from '@/components/NBLTrainingGame';
@@ -25,7 +24,6 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       <Hero />
-      <GamificationHub />
       <InteractiveCupolaMap />
       <CupolaExperience />
       <NBLTrainingGame />

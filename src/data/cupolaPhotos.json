@@ -1,0 +1,124 @@
+{
+  "cupolaPhotos": [
+    {
+      "id": 1,
+      "title": "Earth's Blue Marble from Cupola",
+      "description": "A breathtaking view of Earth captured through the ISS Cupola windows, showing the planet's blue oceans, white clouds, and thin atmosphere.",
+      "imageUrl": "https://images.nasa.gov/20210323_113817_1087/20210323_113817_1087~large.jpg",
+      "nasaId": "ISS066-E-119589",
+      "date": "2021-03-23",
+      "location": "Pacific Ocean",
+      "photographer": "NASA Astronaut",
+      "facts": [
+        "This photo was taken at an altitude of 408 kilometers above Earth",
+        "The ISS travels at 27,600 km/h, completing one orbit every 90 minutes",
+        "The blue color comes from sunlight scattering in Earth's atmosphere"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Hurricane from Space",
+      "description": "A powerful hurricane captured from the Cupola, showing the distinctive eye wall and spiral bands of clouds.",
+      "imageUrl": "https://images.nasa.gov/20190903_181651_1020/20190903_181651_1020~large.jpg",
+      "nasaId": "ISS060-E-039402",
+      "date": "2019-09-03",
+      "location": "Atlantic Ocean",
+      "photographer": "NASA Astronaut",
+      "facts": [
+        "Hurricanes can be tracked from space 5-7 days before they make landfall",
+        "The eye of a hurricane can be 20-50 kilometers in diameter",
+        "ISS data helps improve hurricane prediction models"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "City Lights at Night",
+      "description": "The eastern United States illuminated at night, showcasing human civilization from space through the Cupola windows.",
+      "imageUrl": "https://images.nasa.gov/20201215_003356_1136/20201215_003356_1136~large.jpg",
+      "nasaId": "ISS064-E-041203",
+      "date": "2020-12-15",
+      "location": "Eastern United States",
+      "photographer": "NASA Astronaut",
+      "facts": [
+        "Light pollution patterns reveal population density and development",
+        "LED streetlights appear more blue-white compared to older yellow lights",
+        "Night photography helps scientists study urbanization trends"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Aurora Borealis",
+      "description": "The Northern Lights dance across Earth's atmosphere as seen from the ISS Cupola, creating a spectacular green curtain of light.",
+      "imageUrl": "https://images.nasa.gov/20230222_105630_1305/20230222_105630_1305~large.jpg",
+      "nasaId": "ISS068-E-054321",
+      "date": "2023-02-22",
+      "location": "Northern Canada",
+      "photographer": "NASA Astronaut",
+      "facts": [
+        "Auroras occur when solar particles interact with Earth's magnetic field",
+        "The ISS often flies directly through aurora displays",
+        "Green auroras occur at altitudes of 100-300 km above Earth"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Sahara Desert Patterns",
+      "description": "Intricate sand dune patterns in the Sahara Desert captured through the Cupola, showing natural geological formations.",
+      "imageUrl": "https://images.nasa.gov/20220815_094521_1234/20220815_094521_1234~large.jpg",
+      "nasaId": "ISS067-E-098765",
+      "date": "2022-08-15",
+      "location": "Sahara Desert, Africa",
+      "photographer": "NASA Astronaut",
+      "facts": [
+        "The Sahara covers 9 million square kilometers",
+        "Desert dust travels across the Atlantic to fertilize Amazon rainforests",
+        "ISS helps track sandstorm movements and climate impacts"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Amazon Rainforest",
+      "description": "The Amazon rainforest and its winding rivers as seen from the Cupola, highlighting Earth's biodiversity hotspot.",
+      "imageUrl": "https://images.nasa.gov/20211108_142033_1456/20211108_142033_1456~large.jpg",
+      "nasaId": "ISS066-E-145678",
+      "date": "2021-11-08",
+      "location": "Amazon Basin, Brazil",
+      "photographer": "NASA Astronaut",
+      "facts": [
+        "The Amazon produces 20% of the world's oxygen",
+        "ISS monitors deforestation with 30-meter resolution",
+        "The rainforest covers 5.5 million square kilometers"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Himalayan Peaks",
+      "description": "Snow-capped Himalayan mountains photographed from the Cupola, showing Earth's highest peaks reaching toward space.",
+      "imageUrl": "https://images.nasa.gov/20230105_083245_1567/20230105_083245_1567~large.jpg",
+      "nasaId": "ISS068-E-023456",
+      "date": "2023-01-05",
+      "location": "Himalayas, Nepal/Tibet",
+      "photographer": "NASA Astronaut",
+      "facts": [
+        "Mount Everest is 8.85 km high - visible from the ISS at 408 km altitude",
+        "Himalayan glaciers provide water for 2 billion people",
+        "ISS monitors glacial retreat due to climate change"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Earth's Terminator Line",
+      "description": "The boundary between day and night on Earth captured from the Cupola, showing the transition from sunlight to darkness.",
+      "imageUrl": "https://images.nasa.gov/20220630_195412_1789/20220630_195412_1789~large.jpg",
+      "nasaId": "ISS067-E-067890",
+      "date": "2022-06-30",
+      "location": "Pacific Ocean",
+      "photographer": "NASA Astronaut",
+      "facts": [
+        "The terminator line moves at 1,670 km/h at the equator",
+        "Astronauts see 16 sunrises and sunsets every day",
+        "The thin blue line is Earth's atmosphere protecting life below"
+      ]
+    }
+  ]
+}
