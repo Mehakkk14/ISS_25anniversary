@@ -34,14 +34,23 @@ const Navigation = () => {
             <span className="text-xl font-bold text-foreground">ISS 25th Anniversary</span>
           </div>
 
-          <div className="hidden md:flex items-center gap-8">
-            {['about', 'timeline', 'gallery', 'resources'].map((item) => (
+          <div className="hidden md:flex items-center gap-6">
+            {[
+              { id: 'cupola', label: 'Cupola' },
+              { id: 'weightlessness', label: 'Weightlessness' },
+              { id: 'earth-benefits', label: 'Earth Benefits' },
+              { id: 'research-laboratory', label: 'Research' },
+              { id: 'eva-systems', label: 'EVA Systems' },
+              { id: 'iss-tracker', label: 'Live Tracker' },
+              { id: 'mission-control', label: 'Mission Control' },
+              { id: 'timeline', label: 'Timeline' }
+            ].map((item) => (
               <button
-                key={item}
-                onClick={() => scrollToSection(item)}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors capitalize"
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
               >
-                {item}
+                {item.label}
               </button>
             ))}
           </div>
