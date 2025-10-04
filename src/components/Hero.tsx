@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
 import heroImage from '@/assets/iss-hero.jpg';
+import Globe from './Globe';
 
 const Hero = () => {
   const scrollToAbout = () => {
@@ -27,6 +28,10 @@ const Hero = () => {
         <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 animate-fade-in">
           Celebrating 25 Years of the ISS
         </h1>
+        
+        {/* Globe container below title */}
+        <Globe />
+        
         <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8 animate-fade-in-delay">
           A quarter-century of groundbreaking research, international collaboration, and human presence in space. 
           Explore the journey, achievements, and future of our home in orbit.
