@@ -30,7 +30,11 @@ const EarthSphere = () => {
 
 const Globe = () => {
   return (
-    <div id="globe-container" className="w-full h-[400px] md:h-[500px] my-8">
+    <div id="globe-container" className="w-full h-[400px] md:h-[500px] my-8 relative">
+      {/* Instructions overlay */}
+      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-10 bg-card/80 backdrop-blur-sm px-4 py-2 rounded-lg border border-border">
+        <p className="text-xs text-muted-foreground">Click and drag to rotate • Scroll to zoom</p>
+      </div>
       <Canvas
         camera={{
           position: [0, 0, 6],
@@ -57,9 +61,15 @@ const Globe = () => {
         <OrbitControls
           enableZoom={true}
           enablePan={false}
+          enableDamping={true}
+          dampingFactor={0.05}
+          rotateSpeed={0.5}
+          zoomSpeed={0.8}
           minDistance={4}
           maxDistance={10}
           autoRotate={false}
+          minPolarAngle={Math.PI / 4}
+          maxPolarAngle={(3 * Math.PI) / 4}
         />
       </Canvas>
     </div>
