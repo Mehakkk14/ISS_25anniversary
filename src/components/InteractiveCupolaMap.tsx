@@ -144,9 +144,13 @@ const InteractiveCupolaMap: React.FC = () => {
   const [selectedRegion, setSelectedRegion] = useState<EarthRegion | null>(null);
   const [hoveredRegion, setHoveredRegion] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<'day' | 'night'>('day');
+  const [imageLoading, setImageLoading] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   const handleRegionClick = (region: EarthRegion) => {
     setSelectedRegion(region);
+    setImageLoading(true);
+    setImageError(false);
   };
 
   const getRegionIcon = (type: string) => {
@@ -287,31 +291,61 @@ const InteractiveCupolaMap: React.FC = () => {
                 <div className="space-y-6">
                   {/* ISS Photo */}
                   <div className="relative rounded-lg overflow-hidden bg-slate-800 shadow-2xl">
-                    <img 
-                      src={selectedRegion.issPhoto} 
-                      alt={`${selectedRegion.name} from ISS`}
-                      className="w-full h-64 object-cover transition-transform hover:scale-105"
-                      onError={(e) => {
-                        // Fallback to default image if loading fails
-                        e.currentTarget.src = fallbackImage.url;
-                      }}
-                    />
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                      <div className="flex items-center justify-between text-white">
-                        <div className="flex items-center gap-2">
-                          <Camera className="w-4 h-4" />
-                          <span className="text-sm">
-                            {getImageData(selectedRegion.id).credit}
-                          </span>
+                    {imageLoading && (
+                      <div className="absolute inset-0 flex items-center justify-center bg-slate-800 z-10">
+                        <div className="flex items-center gap-3 text-white">
+                          <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-400"></div>
+                          <span>Loading NASA image...</span>
                         </div>
-                        <Badge variant="secondary" className="bg-blue-600 text-white">
-                          ISS Photography
-                        </Badge>
                       </div>
-                      <p className="text-xs text-gray-300 mt-2">
-                        {getImageData(selectedRegion.id).description}
-                      </p>
-                    </div>
+                    )}
+                    
+                    {imageError ? (
+                      <div className="w-full h-64 bg-slate-700 flex items-center justify-center">
+                        <div className="text-center text-white">
+                          <Camera className="w-16 h-16 mx-auto mb-4 text-blue-400" />
+                          <h3 className="text-lg font-semibold mb-2">ISS Earth Observation</h3>
+                          <p className="text-sm text-gray-300 mb-2">{selectedRegion.name}</p>
+                          <p className="text-xs text-gray-400">
+                            {getImageData(selectedRegion.id).description}
+                          </p>
+                        </div>
+                      </div>
+                    ) : (
+                      <img 
+                        src={selectedRegion.issPhoto} 
+                        alt={`${selectedRegion.name} from ISS`}
+                        className="w-full h-64 object-cover transition-transform hover:scale-105"
+                        onLoad={() => setImageLoading(false)}
+                        onError={(e) => {
+                          setImageLoading(false);
+                          setImageError(true);
+                          // Try fallback image
+                          if (!e.currentTarget.src.includes('fallback')) {
+                            e.currentTarget.src = fallbackImage.url;
+                          }
+                        }}
+                      />
+                    )}
+                    
+                    {!imageError && (
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                        <div className="flex items-center justify-between text-white">
+                          <div className="flex items-center gap-2">
+                            <Camera className="w-4 h-4" />
+                            <span className="text-sm">
+                              {getImageData(selectedRegion.id).credit}
+                            </span>
+                          </div>
+                          <Badge variant="secondary" className="bg-blue-600 text-white">
+                            NASA Earth Observatory
+                          </Badge>
+                        </div>
+                        <p className="text-xs text-gray-300 mt-2">
+                          {getImageData(selectedRegion.id).description}
+                        </p>
+                      </div>
+                    )}
                   </div>
 
                   {/* Description */}
