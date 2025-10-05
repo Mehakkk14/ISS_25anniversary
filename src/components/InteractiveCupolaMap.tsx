@@ -3,7 +3,8 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { MapPin, Camera, Satellite, Eye, X } from 'lucide-react';
+import { MapPin, Camera, Satellite, Eye, X, ExternalLink } from 'lucide-react';
+import { issEarthImages, fallbackImage } from '@/data/issEarthImages';
 
 interface EarthRegion {
   id: string;
@@ -22,7 +23,7 @@ const earthRegions: EarthRegion[] = [
     name: 'Amazon Rainforest',
     coordinates: { x: 30, y: 55 },
     description: 'The lungs of our planet, monitoring deforestation and climate change.',
-    issPhoto: '/api/placeholder/600/400',
+    issPhoto: issEarthImages.amazon.url,
     facts: [
       'ISS monitors deforestation at 60% accuracy',
       'Helps track illegal logging activities',
@@ -37,7 +38,7 @@ const earthRegions: EarthRegion[] = [
     name: 'Himalayan Glaciers',
     coordinates: { x: 70, y: 35 },
     description: 'Tracking glacier retreat and water resource changes.',
-    issPhoto: '/api/placeholder/600/400',
+    issPhoto: issEarthImages.himalayas.url,
     facts: [
       'Monitors 15,000+ glaciers from space',
       'Tracks water availability for 2 billion people',
@@ -52,7 +53,7 @@ const earthRegions: EarthRegion[] = [
     name: 'Sahara Desert',
     coordinates: { x: 50, y: 40 },
     description: 'Studying dust storms and their global climate impact.',
-    issPhoto: '/api/placeholder/600/400',
+    issPhoto: issEarthImages.sahara.url,
     facts: [
       'Tracks 180 million tons of dust annually',
       'Monitors dust reaching Amazon rainforest',
@@ -67,7 +68,7 @@ const earthRegions: EarthRegion[] = [
     name: 'Australian Bushfires',
     coordinates: { x: 85, y: 75 },
     description: 'Real-time wildfire monitoring and smoke tracking.',
-    issPhoto: '/api/placeholder/600/400',
+    issPhoto: issEarthImages['australia-fires'].url,
     facts: [
       'Detects fires within 1-2 hours',
       'Tracks smoke plumes across continents',
@@ -82,7 +83,7 @@ const earthRegions: EarthRegion[] = [
     name: 'Atlantic Hurricanes',
     coordinates: { x: 25, y: 30 },
     description: 'Tracking storm formation and intensification.',
-    issPhoto: '/api/placeholder/600/400',
+    issPhoto: issEarthImages.hurricane.url,
     facts: [
       'Provides 95% accurate storm tracking',
       'Helps predict hurricane intensity',
@@ -97,7 +98,7 @@ const earthRegions: EarthRegion[] = [
     name: 'Great Barrier Reef',
     coordinates: { x: 82, y: 70 },
     description: 'Monitoring coral bleaching and marine ecosystem health.',
-    issPhoto: '/api/placeholder/600/400',
+    issPhoto: issEarthImages['great-barrier-reef'].url,
     facts: [
       'Maps coral bleaching events',
       'Tracks water temperature changes',
@@ -106,6 +107,36 @@ const earthRegions: EarthRegion[] = [
     ],
     type: 'research',
     color: 'bg-cyan-500'
+  },
+  {
+    id: 'northern-lights',
+    name: 'Aurora Borealis',
+    coordinates: { x: 60, y: 15 },
+    description: 'Spectacular aurora displays caused by solar wind interaction.',
+    issPhoto: issEarthImages['northern-lights'].url,
+    facts: [
+      'Best viewed from ISS during solar storms',
+      'Occurs at 80-500 km altitude',
+      'Helps study Earth\'s magnetic field',
+      'Provides space weather monitoring'
+    ],
+    type: 'research',
+    color: 'bg-emerald-500'
+  },
+  {
+    id: 'city-lights',
+    name: 'Urban Night Lights',
+    coordinates: { x: 45, y: 50 },
+    description: 'Human civilization patterns visible from space at night.',
+    issPhoto: issEarthImages['city-lights'].url,
+    facts: [
+      'Maps global urbanization patterns',
+      'Tracks population density changes',
+      'Monitors light pollution levels',
+      'Studies energy consumption patterns'
+    ],
+    type: 'city',
+    color: 'bg-amber-500'
   }
 ];
 
@@ -126,6 +157,10 @@ const InteractiveCupolaMap: React.FC = () => {
       case 'city': return '🏙️';
       default: return '📍';
     }
+  };
+
+  const getImageData = (regionId: string) => {
+    return issEarthImages[regionId as keyof typeof issEarthImages] || fallbackImage;
   };
 
   return (
@@ -251,10 +286,31 @@ const InteractiveCupolaMap: React.FC = () => {
                 
                 <div className="space-y-6">
                   {/* ISS Photo */}
-                  <div className="relative rounded-lg overflow-hidden bg-slate-800 h-64">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <Camera className="w-16 h-16 text-blue-400" />
-                      <span className="ml-4 text-lg">ISS Photograph</span>
+                  <div className="relative rounded-lg overflow-hidden bg-slate-800 shadow-2xl">
+                    <img 
+                      src={selectedRegion.issPhoto} 
+                      alt={`${selectedRegion.name} from ISS`}
+                      className="w-full h-64 object-cover transition-transform hover:scale-105"
+                      onError={(e) => {
+                        // Fallback to default image if loading fails
+                        e.currentTarget.src = fallbackImage.url;
+                      }}
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                      <div className="flex items-center justify-between text-white">
+                        <div className="flex items-center gap-2">
+                          <Camera className="w-4 h-4" />
+                          <span className="text-sm">
+                            {getImageData(selectedRegion.id).credit}
+                          </span>
+                        </div>
+                        <Badge variant="secondary" className="bg-blue-600 text-white">
+                          ISS Photography
+                        </Badge>
+                      </div>
+                      <p className="text-xs text-gray-300 mt-2">
+                        {getImageData(selectedRegion.id).description}
+                      </p>
                     </div>
                   </div>
 
