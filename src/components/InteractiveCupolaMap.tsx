@@ -274,7 +274,11 @@ const InteractiveCupolaMap: React.FC = () => {
         </Card>
 
         {/* Region Detail Modal */}
-        <Dialog open={!!selectedRegion} onOpenChange={() => setSelectedRegion(null)}>
+        <Dialog open={!!selectedRegion} onOpenChange={() => {
+          setSelectedRegion(null);
+          setImageLoading(false);
+          setImageError(false);
+        }}>
           <DialogContent className="max-w-2xl bg-slate-900 text-white border-blue-500/30">
             {selectedRegion && (
               <>
@@ -316,12 +320,17 @@ const InteractiveCupolaMap: React.FC = () => {
                         src={selectedRegion.issPhoto} 
                         alt={`${selectedRegion.name} from ISS`}
                         className="w-full h-64 object-cover transition-transform hover:scale-105"
-                        onLoad={() => setImageLoading(false)}
+                        onLoad={() => {
+                          console.log('Image loaded successfully:', selectedRegion.issPhoto);
+                          setImageLoading(false);
+                        }}
                         onError={(e) => {
+                          console.error('Image failed to load:', selectedRegion.issPhoto);
                           setImageLoading(false);
                           setImageError(true);
                           // Try fallback image
-                          if (!e.currentTarget.src.includes('fallback')) {
+                          if (!e.currentTarget.src.includes('unsplash')) {
+                            console.log('Trying fallback image...');
                             e.currentTarget.src = fallbackImage.url;
                           }
                         }}

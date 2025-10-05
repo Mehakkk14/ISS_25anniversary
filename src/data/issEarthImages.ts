@@ -1,50 +1,50 @@
-// Real NASA ISS Earth observation images (verified working URLs with fallbacks)
+// Reliable space and Earth imagery from accessible sources
 export const issEarthImages = {
   amazon: {
-    url: 'https://eoimages.gsfc.nasa.gov/images/imagerecords/150000/150899/brazil_amo_2019205_lrg.jpg',
-    credit: 'NASA Earth Observatory - Amazon Rainforest',
-    description: 'Amazon rainforest and river systems showing deforestation patterns from space'
+    url: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3',
+    credit: 'Amazon Rainforest - Earth Observation',
+    description: 'Amazon rainforest aerial view showing deforestation patterns'
   },
   himalayas: {
-    url: 'https://eoimages.gsfc.nasa.gov/images/imagerecords/148000/148622/himalayas_oli_2017084_lrg.jpg',
-    credit: 'NASA Earth Observatory - Himalayas',
-    description: 'Snow-covered Himalayan mountain range and glaciers from orbital perspective'
+    url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3',
+    credit: 'Himalayas - Mountain Range',
+    description: 'Snow-covered Himalayan peaks from aerial perspective'
   },
   sahara: {
-    url: 'https://eoimages.gsfc.nasa.gov/images/imagerecords/148000/148568/sahara_vir_2017119_lrg.jpg',
-    credit: 'NASA Earth Observatory - Sahara Desert',
-    description: 'Sahara Desert sand formations and dust patterns visible from space'
+    url: 'https://images.unsplash.com/photo-1547036967-23d11aacaee0?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3',
+    credit: 'Sahara Desert - Aerial View',
+    description: 'Sahara Desert sand dunes and formations from above'
   },
   'australia-fires': {
-    url: 'https://eoimages.gsfc.nasa.gov/images/imagerecords/146000/146154/australia_amo_2020018_lrg.jpg',
-    credit: 'NASA Earth Observatory - Australian Bushfires',
-    description: 'Massive smoke plumes from Australian bushfires captured from satellite'
+    url: 'https://images.unsplash.com/photo-1574880909739-b6625e71a1c5?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3',
+    credit: 'Wildfire Smoke - Satellite View',
+    description: 'Massive smoke plumes from wildfires visible from space'
   },
   hurricane: {
-    url: 'https://eoimages.gsfc.nasa.gov/images/imagerecords/147000/147501/hurricane_iss_2019265_lrg.jpg',
-    credit: 'NASA Earth Observatory - Hurricane from ISS',
-    description: 'Hurricane spiral structure photographed from the International Space Station'
+    url: 'https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3',
+    credit: 'Hurricane - Space Perspective',
+    description: 'Hurricane spiral structure from orbital viewpoint'
   },
   'great-barrier-reef': {
-    url: 'https://eoimages.gsfc.nasa.gov/images/imagerecords/145000/145889/greatbarrierreef_oli_2016287_lrg.jpg',
-    credit: 'NASA Earth Observatory - Great Barrier Reef',
-    description: 'Great Barrier Reef coral systems visible from satellite imagery'
+    url: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3',
+    credit: 'Coral Reef - Ocean View',
+    description: 'Coral reef systems visible from above the ocean'
   },
   'northern-lights': {
-    url: 'https://eoimages.gsfc.nasa.gov/images/imagerecords/147000/147204/aurora_iss061_2019298_lrg.jpg',
-    credit: 'NASA Earth Observatory - Aurora from ISS',
-    description: 'Aurora Borealis over Earth captured from the International Space Station'
+    url: 'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3',
+    credit: 'Aurora Borealis - Northern Lights',
+    description: 'Aurora Borealis dancing over the northern hemisphere'
   },
   'city-lights': {
-    url: 'https://eoimages.gsfc.nasa.gov/images/imagerecords/144000/144898/earth_vir_2016_lrg.jpg',
-    credit: 'NASA Earth Observatory - Earth at Night',
-    description: 'Global city lights showing human settlement patterns from space'
+    url: 'https://images.unsplash.com/photo-1446776877081-d282a0f896e2?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3',
+    credit: 'Earth at Night - City Lights',
+    description: 'Urban lights and human settlement patterns from space'
   }
 };
 
-// Reliable fallback image from NASA Earth Observatory
+// Reliable fallback image
 export const fallbackImage = {
-  url: 'https://eoimages.gsfc.nasa.gov/images/imagerecords/78000/78314/iss_sts115_big.jpg',
-  credit: 'NASA - Earth from Space',
-  description: 'Beautiful view of Earth from the International Space Station'
+  url: 'https://images.unsplash.com/photo-1446776877081-d282a0f896e2?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3',
+  credit: 'Earth from Space',
+  description: 'Beautiful view of Earth from orbital perspective'
 };
